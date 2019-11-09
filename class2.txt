@@ -1,0 +1,1 @@
+Syntax appears a lot  when I'm playing in microbit with arrays and sometimes with command blocks
