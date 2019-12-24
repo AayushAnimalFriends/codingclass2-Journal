@@ -1,7 +1,7 @@
 #
 # Utility Functions
 #
-def IsPrime(n):
+def IsPrimeSlow(n):
     isitprime = list()
     for counter in range (1,n+1):
         holder2 = factor % counter
@@ -29,14 +29,26 @@ def GetFactors(n):
     for counter in range (1,n):
         if (n % counter == 0):
             isitfactor = n // counter
-            factors.append(isitfactor)
+            if (counter > isitfactor):
+                break
+            factors.insert(0,isitfactor)
+            factors.append(counter)
+    factors = sorted(factors)
     return factors
 
+def IsPrime(n):
+    x = GetFactors(n)
+    if (len(x) == 2):
+        return True
+    else:
+        return False
 ##################################################################################################
 
-#n = 600851475143
+n = 600851475143
 #n=73232575
-n=732325
+#n=732325
+#n=21
+
 prime = list()
 
 factors = GetFactors(n)
@@ -49,7 +61,7 @@ for factor in factors:
         prime.append(factor)
 print("all Primes: ", prime)
                 
-theanswer = prime[0]
+theanswer = prime[len(prime)-1]
 print(theanswer)
                             
                             
