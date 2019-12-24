@@ -11,21 +11,35 @@ def IsPrime(n):
         return True
     else:
         return False
-##################################################################################################
 
-#n = 600851475143
-n=73232575
-counter = 1
-factors = list()
-isitfactor = 0
-#isitprime = list()
-prime = list()
-for counter in range (n):
-    if (counter >= 1):
+def GetFactorsSlow(n):
+    factors = list()
+    counter = 1
+    isitfactor = 0
+    for counter in range (1,n):
         if (n % counter == 0):
             isitfactor = n // counter
             factors.append(isitfactor)
+    return factors
 
+def GetFactors(n):
+    factors = list()
+    counter = 1
+    isitfactor = 0
+    for counter in range (1,n):
+        if (n % counter == 0):
+            isitfactor = n // counter
+            factors.append(isitfactor)
+    return factors
+
+##################################################################################################
+
+#n = 600851475143
+#n=73232575
+n=732325
+prime = list()
+
+factors = GetFactors(n)
 #factors = 1,2,3,4,5,10,20,25,50,97,100
 
 print("All Factors for", n, "are", factors)
