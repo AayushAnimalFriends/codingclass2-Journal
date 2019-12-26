@@ -5,8 +5,11 @@ def isitpalindrome(n):
         x = n % 10
         isitpalindrome2.append(x)
         n = n // 10
-    for counter in range (1 , len(isitpalindrome2) // 2):
-        if (isitpalindrome2[counter - 1] == len(isitpalindrome2) - counter):
+    print("My list is: ", isitpalindrome2)
+    for counter in range (len(isitpalindrome2) // 2):
+        counter2 = len(isitpalindrome2) - counter - 1
+        print("Indexes counter, counter2 is : ", counter, counter2)
+        if (isitpalindrome2[counter] == isitpalindrome2[counter2]):
             check.append(1)
     if (len(check) == len(isitpalindrome2) // 2):
         return True
@@ -15,7 +18,7 @@ def isitpalindrome(n):
 
 
 n=678
-if(isitpalindrome(676)):
+if(isitpalindrome(234567654323)):
     print('y')
 else:
     print('n')
