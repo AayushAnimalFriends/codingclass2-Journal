@@ -19,7 +19,7 @@ for counter in range(n):
     for counter2 in range(n):
        x = (n - counter) * (n - counter2)
        if(isitpalindrome(x)):
-          print(x)
+          print(x, 'is palindrome')
           thesearepalindromes.append(x)
 thesearepalindromes.sort()
 print(thesearepalindromes[len(thesearepalindromes) - 1])        
