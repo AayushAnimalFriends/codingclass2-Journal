@@ -10,6 +10,8 @@ for counter in range (1,20):
         xlist.append(xm)
         xm = xm + x
         ym = ym = y
+        print(xm)
+        print(ym)
         for counter in range (len(xlist) - 1):
             for counter2 in range (len(ylist) - 1):
                 if (xlist[counter] == ylist[counter2]):
