@@ -49,8 +49,8 @@ def IsPrime(n):
 #print("All Factors for", n, "are", factors)
 #for factor in factors:
 #    if (IsPrime(factor)):
-#        prime.append(factor)
-#print("all Primes: ", prime)              
+        prime.append(factor)
+#print("all Primes: ", prime)               
 #theanswer = prime[len(prime)-1]
 #print(theanswer)
                             
