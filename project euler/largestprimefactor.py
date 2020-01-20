@@ -43,26 +43,16 @@ def IsPrime(n):
     else:
         return False
 ##################################################################################################
-
-n = 600851475143
-#n=73232575
-#n=732325
-#n=21
-
-prime = list()
-
-factors = GetFactors(n)
-#factors = 1,2,3,4,5,10,20,25,50,97,100
-
-print("All Factors for", n, "are", factors)
-
-for factor in factors:
-    if (IsPrime(factor)):
-        prime.append(factor)
-print("all Primes: ", prime)
-                
-theanswer = prime[len(prime)-1]
-print(theanswer)
+#n = 600851475143
+#prime = list()
+#factors = GetFactors(n)
+#print("All Factors for", n, "are", factors)
+#for factor in factors:
+#    if (IsPrime(factor)):
+#        prime.append(factor)
+#print("all Primes: ", prime)              
+#theanswer = prime[len(prime)-1]
+#print(theanswer)
                             
                             
                     
