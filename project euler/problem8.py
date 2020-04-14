@@ -24,7 +24,7 @@ Index = 0
 Calculation = 1
 TheAnswerForNow = 0
 while (Index < 1000):
-    for counter in range(0,12):
+    for counter in range(0,13):
         Index = counter + AddIndex
         if(Index >= 1000):
             break
