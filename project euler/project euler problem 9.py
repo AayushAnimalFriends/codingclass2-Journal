@@ -7,6 +7,9 @@ while (c >= 335):
     while (b < c):
         if (a * a + b * b == c * c):
             theanswer = a * b * c
+            print(a)
+            print(b)
+            print(c)
             c = 334
             break
         b = b + 1
