@@ -10,6 +10,7 @@ while (c >= 335):
             print(a)
             print(b)
             print(c)
+            # Setting C = 334 to ensure we can break the outer loop
             c = 334
             break
         b = b + 1
