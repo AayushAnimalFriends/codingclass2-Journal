@@ -22,8 +22,8 @@ Matrix = [
 ]
 i = 0
 j = 0
-rowsandcolums = list()
-rowsandcolumsproduct = 0
+numbers = list()
+theanswer = 0
 na = 0
 nb = 0
 nc = 0
@@ -41,12 +41,14 @@ while(i <= 19):
         j = j + 1
         nd = Matrix[i][j]
         nproduct = na * nb * nc * nd
-        if (nproduct > rowsandcolumsproduct):
-            rowsandcolumsproduct = nproduct
-            rowsandcoulms = [na, nb, nc, nd]
+        if (nproduct > theanswer):
+            theanswer = nproduct
+            numbers = [na, nb, nc, nd]
         j = jHolder + 1
         jHolder = j
     i = i + 1
+    jHolder = 0
+    j = 0
 i = 0
 j = 0
 iHolder = 0
@@ -61,14 +63,73 @@ while(i <= 19):
         j = j + 1
         nd = Matrix[j][i]
         nproduct = na * nb * nc * nd
-        if (nproduct > rowsandcolumsproduct):
-            rowsandcolumsproduct = nproduct
-            rowsandcoulms = [na, nb, nc, nd]
+        if (nproduct > theanswer):
+            theanswer = nproduct
+            numbers = [na, nb, nc, nd]
         j = jHolder + 1
         jHolder = j
     i = i + 1
-print(rowsandcolumsproduct)
-print(rowsandcolums)
+    jHolder = 0
+    j = 0
+i = 0
+j = 0
+iHolder = 0
+jHolder = 0
+while(i <= 15):
+    while(j <= 15):
+        na = Matrix[i][j]
+        j = j + 1
+        i = i + 1
+        nb = Matrix[i][j]
+        j = j + 1
+        i = i + 1
+        nc = Matrix[i][j]
+        j = j + 1
+        i = i + 1
+        nd = Matrix[i][j]
+        nproduct = na * nb * nc * nd
+        if (nproduct > theanswer):
+            theanswer = nproduct
+            numbers = [na, nb, nc, nd]
+        j = jHolder + 1
+        jHolder = j
+        i = iHolder
+    i = i + 1
+    jHolder = 0
+    j = 0
+    iHolder = i
+i = 0
+j = 0
+iHolder = 0
+jHolder = 0
+while(i <= 19):
+    while(j <= 15):
+        i = i + 3
+        if (i > 19):
+            break
+        na = Matrix[i][j]
+        j = j + 1
+        i = i - 1
+        nb = Matrix[i][j]
+        j = j + 1
+        i = i - 1
+        nc = Matrix[i][j]
+        j = j + 1
+        i = i - 1
+        nd = Matrix[i][j]
+        nproduct = na * nb * nc * nd
+        if (nproduct > theanswer):
+            theanswer = nproduct
+            numbers = [na, nb, nc, nd]
+        j = jHolder + 1
+        jHolder = j
+    i = i + 1
+    jHolder = 0
+    j = 0
+    iHolder = i
+
+print(theanswer)
+print(numbers)
         
         
         
