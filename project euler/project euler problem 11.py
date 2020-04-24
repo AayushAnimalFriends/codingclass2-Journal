@@ -28,11 +28,11 @@ na = 0
 nb = 0
 nc = 0
 nd = 0
-nproduct
+nproduct = 0
 iHolder = 0
 jHolder = 0
-while(i <= 19)
-    while(j <= 15)
+while(i <= 19):
+    while(j <= 15):
         na = Matrix[i][j]
         j = j + 1
         nb = Matrix[i][j]
@@ -41,9 +41,9 @@ while(i <= 19)
         j = j + 1
         nd = Matrix[i][j]
         nproduct = na * nb * nc * nd
-        if (nproduct > rowsandcolumsproduct)
+        if (nproduct > rowsandcolumsproduct):
             rowsandcolumsproduct = nproduct
-            rowsandcoulms = list(na, nb, nc, nd)
+            rowsandcoulms = [na, nb, nc, nd]
         j = jHolder + 1
         jHolder = j
     i = i + 1
@@ -51,8 +51,8 @@ i = 0
 j = 0
 iHolder = 0
 jHolder = 0
-while(i <= 19)
-    while(j <= 15)
+while(i <= 19):
+    while(j <= 15):
         na = Matrix[j][i]
         j = j + 1
         nb = Matrix[j][i]
@@ -61,11 +61,14 @@ while(i <= 19)
         j = j + 1
         nd = Matrix[j][i]
         nproduct = na * nb * nc * nd
-        if (nproduct > rowsandcolumsproduct)
+        if (nproduct > rowsandcolumsproduct):
             rowsandcolumsproduct = nproduct
-            rowsandcoulms = list(na, nb, nc, nd)
+            rowsandcoulms = [na, nb, nc, nd]
         j = jHolder + 1
         jHolder = j
+    i = i + 1
+print(rowsandcolumsproduct)
+print(rowsandcolums)
         
         
         
