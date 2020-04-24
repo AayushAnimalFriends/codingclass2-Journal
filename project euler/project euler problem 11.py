@@ -20,3 +20,52 @@ Matrix = [
 [20, 73, 35, 29, 78, 31, 90,  1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57,  5, 54],
 [ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52,  1, 89, 19, 67, 48]
 ]
+i = 0
+j = 0
+rowsandcolums = list()
+rowsandcolumsproduct = 0
+na = 0
+nb = 0
+nc = 0
+nd = 0
+nproduct
+iHolder = 0
+jHolder = 0
+while(i <= 19)
+    while(j <= 15)
+        na = Matrix[i][j]
+        j = j + 1
+        nb = Matrix[i][j]
+        j = j + 1
+        nc = Matrix[i][j]
+        j = j + 1
+        nd = Matrix[i][j]
+        nproduct = na * nb * nc * nd
+        if (nproduct > rowsandcolumsproduct)
+            rowsandcolumsproduct = nproduct
+            rowsandcoulms = list(na, nb, nc, nd)
+        j = jHolder + 1
+        jHolder = j
+    i = i + 1
+i = 0
+j = 0
+iHolder = 0
+jHolder = 0
+while(i <= 19)
+    while(j <= 15)
+        na = Matrix[j][i]
+        j = j + 1
+        nb = Matrix[j][i]
+        j = j + 1
+        nc = Matrix[j][i]
+        j = j + 1
+        nd = Matrix[j][i]
+        nproduct = na * nb * nc * nd
+        if (nproduct > rowsandcolumsproduct)
+            rowsandcolumsproduct = nproduct
+            rowsandcoulms = list(na, nb, nc, nd)
+        j = jHolder + 1
+        jHolder = j
+        
+        
+        
