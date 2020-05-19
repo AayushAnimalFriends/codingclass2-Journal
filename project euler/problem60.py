@@ -25,9 +25,21 @@ def splitgrouptwo(lon):#listofnumbers
         a = a + 1
         b = a
     return twopairs
-lon = [1,2,3,4,5,6,7,8,9,10]
-print(splitgrouptwo(lon))
-        
-
-        
-           
+def splitgroupthree(lon):#listofnumbers
+    twopairs = splitgrouptwo(lon)
+    threecombos = []
+    for i in range(0, len(twopairs)):
+        x = twopairs[i][1]
+        for counter in range(0, len(lon) - 1):
+            if(lon[counter] == x):
+                b = counter
+                while(b != len(lon) - 1):
+                    listholder = [twopairs[i][0],twopairs[i][1]]
+                    b = b + 1
+                    listholder.append(lon[b])
+                    threecombos.append(listholder)
+                
+    return threecombos
+test = [1,2,3,4,5,6,7,8,9]
+print(splitgroupthree(test))
+                
