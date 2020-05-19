@@ -40,6 +40,36 @@ def splitgroupthree(lon):#listofnumbers
                     threecombos.append(listholder)
                 
     return threecombos
+def splitgroupfour(lon):#listofnumbers
+    threecombos = splitgroupthree(lon)
+    fourcombos = []
+    for i in range(0, len(threecombos)):
+        x = threecombos[i][2]
+        for counter in range(0, len(lon) - 1):
+            if(lon[counter] == x):
+                b = counter
+                while(b != len(lon) - 1):
+                    listholder = [threecombos[i][0],threecombos[i][1],threecombos[i][2]]
+                    b = b + 1
+                    listholder.append(lon[b])
+                    fourcombos.append(listholder)
+                
+    return fourcombos
+def splitgroupfive(lon):#listofnumbers
+    fourcombos = splitgroupfour(lon)
+    fivecombos = []
+    for i in range(0, len(fourcombos)):
+        x = fourcombos[i][3]
+        for counter in range(0, len(lon) - 1):
+            if(lon[counter] == x):
+                b = counter
+                while(b != len(lon) - 1):
+                    listholder = [fourcombos[i][0],fourcombos[i][1],fourcombos[i][2],fourcombos[i][3]]
+                    b = b + 1
+                    listholder.append(lon[b])
+                    fivecombos.append(listholder)
+                
+    return fivecombos
 test = [1,2,3,4,5,6,7,8,9]
-print(splitgroupthree(test))
+print(splitgroupfive(test))
                 
