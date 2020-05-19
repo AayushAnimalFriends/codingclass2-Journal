@@ -70,6 +70,8 @@ def splitgroupfive(lon):#listofnumbers
                     fivecombos.append(listholder)
                 
     return fivecombos
-test = [1,2,3,4,5,6,7,8,9]
-print(splitgroupfive(test))
+test = [1,2,3,4,5]
+test2 =[5,4,3,2,1]
+print(splitgrouptwo(test))
+print(splitgrouptwo(test2))
                 
