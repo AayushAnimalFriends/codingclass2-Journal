@@ -68,10 +68,30 @@ def splitgroupfive(lon):#listofnumbers
                     b = b + 1
                     listholder.append(lon[b])
                     fivecombos.append(listholder)
-                
     return fivecombos
-test = [1,2,3,4,5]
-test2 =[5,4,3,2,1]
-print(splitgrouptwo(test))
-print(splitgrouptwo(test2))
+    
+def concatinatesplitgrouptwoforwardandback(lon):#listofnumbers
+    twocombo = splitgrouptwo(lon)
+    forwardsandbackwards = []
+    for i in range(0 , len(twocombo)):
+        fn = twocombo[i][0]
+        ln = twocombo[i][1]
+        forwardsandbackwards.append(concatinate(fn, ln))
+    lon.reverse()
+    twocombo = splitgrouptwo(lon)
+    for i in range(0 , len(twocombo)):
+        fn = twocombo[i][0]
+        ln = twocombo[i][1]
+        forwardsandbackwards.append(concatinate(fn, ln))
+    
+    return forwardsandbackwards
+        
+        
+    
+                
+
+test = [2,3,5,7,11]
+test2 =[6,5,4,3,2,1]
+print(concatinatesplitgrouptwoforwardandback(test))
+print(splitgroupfive(test2))
                 
