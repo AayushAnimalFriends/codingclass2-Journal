@@ -1,3 +1,6 @@
+from largestprimefactor import *
+
+
 def concatinate(fn, ln):#firstnumber and lastnumber
     ln2 = ln #making sure I can add last number to first number at the end
     i = 10 # creating my number i will use to divide ln
@@ -86,12 +89,24 @@ def concatinatesplitgrouptwoforwardandback(lon):#listofnumbers
     
     return forwardsandbackwards
         
-        
+def splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimes(lon):#listofnumbers
+    i = splitgroupfive(lon)
+    returnvalue = list()
+    for counter in range(0,len(i)):
+        b = concatinatesplitgrouptwoforwardandback(i[counter])
+        y = 0
+        for x in range(0,len(b)-1):
+            if(IsPrime(b[x])):
+                y = y + 1
+        if(y == len(b)):
+            returnvalue.append(b)
+    return returnvalue
+           
     
                 
 
-test = [2,3,5,7,11]
+test = [2,3,5,7,11,13,17,19,23,29,31]
 test2 =[6,5,4,3,2,1]
-print(concatinatesplitgrouptwoforwardandback(test))
+print(splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimes(test))
 print(splitgroupfive(test2))
                 
