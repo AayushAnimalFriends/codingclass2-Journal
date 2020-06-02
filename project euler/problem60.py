@@ -89,24 +89,58 @@ def concatinatesplitgrouptwoforwardandback(lon):#listofnumbers
     
     return forwardsandbackwards
         
-def splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimes(lon):#listofnumbers
+def splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):#listofnumbers
     i = splitgroupfive(lon)
-    returnvalue = list()
+    returnvalue = 0
     for counter in range(0,len(i)):
         b = concatinatesplitgrouptwoforwardandback(i[counter])
         y = 0
-        for x in range(0,len(b)-1):
+        z = 0
+        for x in range(0,len(b)):
             if(IsPrime(b[x])):
                 y = y + 1
         if(y == len(b)):
-            returnvalue.append(b)
-    return returnvalue
-           
-    
+            for a in range (0,len(i[counter])):
+                z = z + i[counter][a]
+            if(returnvalue < z):
+                returnvalue = z
                 
+    return returnvalue
 
-test = [2,3,5,7,11,13,17,19,23,29,31]
-test2 =[6,5,4,3,2,1]
-print(splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimes(test))
-print(splitgroupfive(test2))
+
+def splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):#listofnumbers
+    i = splitgroupfour(lon)
+    returnvalue = 0
+    for counter in range(0,len(i)):
+        b = concatinatesplitgrouptwoforwardandback(i[counter])
+        y = 0
+        z = 0
+        for x in range(0,len(b)):
+            if(IsPrime(b[x])):
+                y = y + 1
+        if(y == len(b)):
+            for a in range (0,len(i[counter])):
+                z = z + i[counter][a]
+            if(returnvalue < z):
+                returnvalue = z
+                
+    return returnvalue
+
+print("Test Four: ", splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673]))
+print("Test Five: ", splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673,1069]))
+
+while True:
+    i = 10000
+    print("i is", i)
+    lon = list()#listofnumbers 
+    for counter in range(1,i):
+        if(IsPrime(counter)):
+            lon.append(counter)
+    theanswer = splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon)
+    if (theanswer == 0):
+        i = i * 10
+    else:
+        break
+print(theanswer)
+
                 
