@@ -16,6 +16,7 @@ def concatinate(fn, ln):#firstnumber and lastnumber
 def splitgrouptwo(lon):#listofnumbers
     a = 0
     b = 0
+    v = 0
     print("this is how many numbers in the list are eing proccesed" , len(lon))
     print("2 begins")
     twopairs = []
@@ -32,11 +33,13 @@ def splitgrouptwo(lon):#listofnumbers
                
         a = a + 1
         b = a
-        print("b loop finished")
+        print("b loop finished" , v)
+        v = v + 1
     return twopairs
 def splitgroupthree(lon):#listofnumbers
     twopairs = splitgrouptwo(lon)
     print("3 begins")
+    v = 0
     threecombos = []
     for i in range(0, len(twopairs)):
         x = twopairs[i][1]
@@ -49,13 +52,15 @@ def splitgroupthree(lon):#listofnumbers
                     listholder.append(lon[b])
                     n = splitgrouptwo(listholder)
                     if(len(n) == 3):
-                        print("3 found")
+                        print("3 found" , v)
+                        v = v + 1
                         threecombos.append(listholder)
                 
     return threecombos
 def splitgroupfour(lon):#listofnumbers
     threecombos = splitgroupthree(lon)
     fourcombos = []
+    v = 0
     print('4 begins')
     for i in range(0, len(threecombos)):
         x = threecombos[i][2]
@@ -68,7 +73,8 @@ def splitgroupfour(lon):#listofnumbers
                     listholder.append(lon[b])
                     n = splitgrouptwo(listholder)
                     if (len(n) == 6):
-                        print("4 found")
+                        print("4 found" , v)
+                        v = v + 1
                         fourcombos.append(listholder)
                 
     return fourcombos
@@ -76,6 +82,7 @@ def splitgroupfive(lon):#listofnumbers
     fourcombos = splitgroupfour(lon)
     fivecombos = []
     print('5 begins')
+    v = 0
     for i in range(0, len(fourcombos)):
         x = fourcombos[i][3]
         for counter in range(0, len(lon) - 1):
@@ -87,7 +94,8 @@ def splitgroupfive(lon):#listofnumbers
                     listholder.append(lon[b])
                     n = splitgrouptwo(listholder)
                     if (len(n) == 10):
-                        print("5 found")
+                        print("5 found" , v)
+                        v = v + 1
                         fivecombos.append(listholder)
     return fivecombos
     
