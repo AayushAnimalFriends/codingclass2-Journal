@@ -16,6 +16,8 @@ def concatinate(fn, ln):#firstnumber and lastnumber
 def splitgrouptwo(lon):#listofnumbers
     a = 0
     b = 0
+    print("this is how many numbers in the list are eing proccesed" , len(lon))
+    print("2 begins")
     twopairs = []
     listholder = []
     while(a != len(lon)-1):
@@ -27,11 +29,14 @@ def splitgrouptwo(lon):#listofnumbers
                listholder.append(lon[b])
                twopairs.append(listholder)
                listholder = []
+               
         a = a + 1
         b = a
+        print("b loop finished")
     return twopairs
 def splitgroupthree(lon):#listofnumbers
     twopairs = splitgrouptwo(lon)
+    print("3 begins")
     threecombos = []
     for i in range(0, len(twopairs)):
         x = twopairs[i][1]
@@ -44,12 +49,14 @@ def splitgroupthree(lon):#listofnumbers
                     listholder.append(lon[b])
                     n = splitgrouptwo(listholder)
                     if(len(n) == 3):
+                        print("3 found")
                         threecombos.append(listholder)
                 
     return threecombos
 def splitgroupfour(lon):#listofnumbers
     threecombos = splitgroupthree(lon)
     fourcombos = []
+    print('4 begins')
     for i in range(0, len(threecombos)):
         x = threecombos[i][2]
         for counter in range(0, len(lon) - 1):
@@ -61,12 +68,14 @@ def splitgroupfour(lon):#listofnumbers
                     listholder.append(lon[b])
                     n = splitgrouptwo(listholder)
                     if (len(n) == 6):
+                        print("4 found")
                         fourcombos.append(listholder)
                 
     return fourcombos
 def splitgroupfive(lon):#listofnumbers
     fourcombos = splitgroupfour(lon)
     fivecombos = []
+    print('5 begins')
     for i in range(0, len(fourcombos)):
         x = fourcombos[i][3]
         for counter in range(0, len(lon) - 1):
@@ -78,6 +87,7 @@ def splitgroupfive(lon):#listofnumbers
                     listholder.append(lon[b])
                     n = splitgrouptwo(listholder)
                     if (len(n) == 10):
+                        print("5 found")
                         fivecombos.append(listholder)
     return fivecombos
     
@@ -100,6 +110,7 @@ def concatinatesplitgrouptwoforwardandback(lon):#listofnumbers
 def splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):#listofnumbers
     i = splitgroupfive(lon)
     returnvalue = 0
+    print("five finished")
     for counter in range(0,len(i)):
         b = concatinatesplitgrouptwoforwardandback(i[counter])
         y = 0
@@ -110,6 +121,7 @@ def splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):
         if(y == len(b)):
             for a in range (0,len(i[counter])):
                 z = z + i[counter][a]
+            print("a all primes one found")
             if(returnvalue < z):
                 returnvalue = z
                 
@@ -134,8 +146,8 @@ def splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):
                 
     return returnvalue
 
-print("Test Four: ", splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673]))
-print("Test Five: ", splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673,1069]))
+#print("Test Four: ", splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673]))
+#print("Test Five: ", splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673,1069]))
 
 while True:
     i = 10000
