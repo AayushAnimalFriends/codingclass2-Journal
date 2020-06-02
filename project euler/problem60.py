@@ -21,10 +21,12 @@ def splitgrouptwo(lon):#listofnumbers
     while(a != len(lon)-1):
         while(b != len(lon) - 1):
            b = b + 1
-           listholder.append(lon[a]) 
-           listholder.append(lon[b])
-           twopairs.append(listholder)
-           listholder = []
+           i = concatinate(a,b)
+           if (IsPrime(i)):
+               listholder.append(lon[a]) 
+               listholder.append(lon[b])
+               twopairs.append(listholder)
+               listholder = []
         a = a + 1
         b = a
     return twopairs
@@ -40,7 +42,9 @@ def splitgroupthree(lon):#listofnumbers
                     listholder = [twopairs[i][0],twopairs[i][1]]
                     b = b + 1
                     listholder.append(lon[b])
-                    threecombos.append(listholder)
+                    n = splitgrouptwo(listholder)
+                    if(len(n) == 3):
+                        threecombos.append(listholder)
                 
     return threecombos
 def splitgroupfour(lon):#listofnumbers
@@ -55,7 +59,9 @@ def splitgroupfour(lon):#listofnumbers
                     listholder = [threecombos[i][0],threecombos[i][1],threecombos[i][2]]
                     b = b + 1
                     listholder.append(lon[b])
-                    fourcombos.append(listholder)
+                    n = splitgrouptwo(listholder)
+                    if (len(n) == 6):
+                        fourcombos.append(listholder)
                 
     return fourcombos
 def splitgroupfive(lon):#listofnumbers
@@ -70,7 +76,9 @@ def splitgroupfive(lon):#listofnumbers
                     listholder = [fourcombos[i][0],fourcombos[i][1],fourcombos[i][2],fourcombos[i][3]]
                     b = b + 1
                     listholder.append(lon[b])
-                    fivecombos.append(listholder)
+                    n = splitgrouptwo(listholder)
+                    if (len(n) == 10):
+                        fivecombos.append(listholder)
     return fivecombos
     
 def concatinatesplitgrouptwoforwardandback(lon):#listofnumbers
