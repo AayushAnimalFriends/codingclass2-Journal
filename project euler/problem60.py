@@ -1,5 +1,38 @@
 from largestprimefactor import *
+import math
+import pickle
 
+def GetIsPrimeArray(n):
+    print("GetIsPrimeArray with",n)
+    x = [True] * (n+1)
+    x[0] = False
+    x[1] = False
+    for i in range(2,int(math.sqrt(n))):
+        if (i % 10 == 0):
+            print("GetIsPrimeArray Loop for ", n, "is at", i)
+        for counter in range(i,n):
+            if (counter % 1000000 == 0):
+                print("GetIsPrimeArray Loop for ", n, "is at", i, "and counter", counter)
+            if (i * counter <= n):
+                x[i * counter] = False
+            else:
+                break
+    return x
+
+PrimeList = None
+
+def LoadPrimeList():
+    global PrimeList
+    f = open('PrimeList100Million.pckl', 'rb')
+    PrimeList = pickle.load(f)
+
+def PrimeListCalculate(i):
+    global PrimeList
+    PrimeList = GetIsPrimeArray(i)
+
+def IsPrimeFast(i):
+    global PrimeList
+    return PrimeList[i]
 
 def concatinate(fn, ln):#firstnumber and lastnumber
     ln2 = ln #making sure I can add last number to first number at the end
@@ -17,31 +50,35 @@ def splitgrouptwo(lon):#listofnumbers
     a = 0
     b = 0
     v = 0
-    print("this is how many numbers in the list are eing proccesed" , len(lon))
-    print("2 begins")
+    #print("this is how many numbers in the list are eing proccesed" , len(lon))
+    #print("2 begins")
     twopairs = []
     listholder = []
     while(a != len(lon)-1):
         while(b != len(lon) - 1):
            b = b + 1
            i = concatinate(a,b)
-           if (IsPrime(i)):
+           j = concatinate(b,a)
+           if (IsPrimeFast(i) and IsPrimeFast(j)):
                listholder.append(lon[a]) 
                listholder.append(lon[b])
                twopairs.append(listholder)
                listholder = []
                
+               
         a = a + 1
         b = a
-        print("b loop finished" , v)
+        #print("b loop finished" , v)
         v = v + 1
     return twopairs
 def splitgroupthree(lon):#listofnumbers
     twopairs = splitgrouptwo(lon)
+    print("splitgroupthree: len(lon) is", len(lon), "and len(twopairs) is", len(twopairs))
     print("3 begins")
     v = 0
     threecombos = []
     for i in range(0, len(twopairs)):
+        print("i is ", i, "len(twopairs) is", len(twopairs))
         x = twopairs[i][1]
         for counter in range(0, len(lon) - 1):
             if(lon[counter] == x):
@@ -52,9 +89,10 @@ def splitgroupthree(lon):#listofnumbers
                     listholder.append(lon[b])
                     n = splitgrouptwo(listholder)
                     if(len(n) == 3):
-                        print("3 found" , v)
+                        print("3 found for len(twopairs)", len(twopairs) , "is", v)
                         v = v + 1
                         threecombos.append(listholder)
+                break
                 
     return threecombos
 def splitgroupfour(lon):#listofnumbers
@@ -124,7 +162,7 @@ def splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):
         y = 0
         z = 0
         for x in range(0,len(b)):
-            if(IsPrime(b[x])):
+            if(IsPrimeFast(b[x])):
                 y = y + 1
         if(y == len(b)):
             for a in range (0,len(i[counter])):
@@ -144,7 +182,7 @@ def splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):
         y = 0
         z = 0
         for x in range(0,len(b)):
-            if(IsPrime(b[x])):
+            if(IsPrimeFast(b[x])):
                 y = y + 1
         if(y == len(b)):
             for a in range (0,len(i[counter])):
@@ -157,16 +195,22 @@ def splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon):
 #print("Test Four: ", splitgroupfourconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673]))
 #print("Test Five: ", splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum([3,7,109,673,1069]))
 
+PrimeListCalculate(10)
+print(PrimeList)
+
 while True:
     i = 10000
+    #PrimeListCalculate(i*i)
+    LoadPrimeList()
     print("i is", i)
     lon = list()#listofnumbers 
     for counter in range(1,i):
-        if(IsPrime(counter)):
+        if(IsPrimeFast(counter)):
             lon.append(counter)
     theanswer = splitgroupfiveconcatinatesplitgrouptwoforwardandbackallprimeslowestsum(lon)
     if (theanswer == 0):
         i = i * 10
+        break #TEMPORry
     else:
         break
 print(theanswer)
