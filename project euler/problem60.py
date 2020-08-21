@@ -87,7 +87,7 @@ def splitgrouptwo(lon):#listofnumbers
                
         a = a + 1
         b = a
-        #print("b loop finished" , v)
+        print("b loop finished" , v)
         v = v + 1
     return twopairs
 def splitgroupthree(lon):#listofnumbers
