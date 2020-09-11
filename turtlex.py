@@ -78,8 +78,8 @@ def loop():
 
 
 
-    
-while True:
+print("help: f is forward b is backward r is right l is left ci is circle co is color up is disable draw/pen up down is enable draw/pendown")
+while True
     loop()
     
     
