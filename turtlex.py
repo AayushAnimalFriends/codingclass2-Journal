@@ -83,7 +83,7 @@ def loop(Getsequence):
 
 
 
-print("help: f is forward b is backward r is right l is left ci is circle co is color up is disable draw/pen up down is enable draw/pendown")
+print("help: f is forward b is backward r is right l is left ci is circle co is color up is disable draw/pen up down is enable draw/pendown when doing redo it will ask you how many times you want to repeat")
 while True:
     a = input("would you like to undo (u) or redo (r) or create a new loop (CNL)")
     if (a == 'CNL'):
