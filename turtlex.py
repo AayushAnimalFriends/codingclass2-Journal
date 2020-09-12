@@ -89,13 +89,13 @@ while True: #INfinity loop
         b = loop(Getsequence()) #running the loop but putting it into a variable for undo
     if (a == 'u'):
         c = input(" would you like to undo one action(O) or the whole previous loop (W)") #asking to choose between once or whole loop
-        if (c == 'O'):
-            smart.undo()
-        if (c == 'W'):
-            for i in range(0, b):
-                smart.undo()
-    if (a == 'r'):
-        b = loop(n)
+        if (c == 'O'): #checking for once
+            smart.undo()#undoig1
+        if (c == 'W'):#chcking for wholeloop
+            for i in range(0, b): #using b which is that len(n) * times to undo the right amount of times
+                smart.undo() #undo
+    if (a == 'r'):  #checking for redo
+        b = loop(n) #wheb we said to global n n was the previous input for the getsequence function so because its saved what we can do is run n as the parameter instead getsequnce
     
     
 
