@@ -43,11 +43,15 @@ def Getsequence():
             p = Point('down',0)
             ListOfNumbers.append(p)
         finish = input("would you like to enter another command")
-        if (finish == 'no' or 'n'):
+        if (finish == 'n'):
+            return ListOfNumbers
+        if (finish == 'no'):
             return ListOfNumbers
 
-def loop():
-    n = Getsequence()
+
+def loop(Getsequence):
+    global n
+    n = Getsequence
     times = int(input("how many times do you want to repeat you can repeat once"))
     for y in range(0, times):
         for i in range(0, len(n)):
@@ -74,13 +78,25 @@ def loop():
                 smart.penup()
             if (direction == "down"):
                 smart.pendown()
+    return len(n)*times
         
 
 
 
 print("help: f is forward b is backward r is right l is left ci is circle co is color up is disable draw/pen up down is enable draw/pendown")
-while True
-    loop()
+while True:
+    a = input("would you like to undo (u) or redo (r) or create a new loop (CNL)")
+    if (a == 'CNL'):
+        b = loop(Getsequence())
+    if (a == 'u'):
+        c = input(" would you like to undo one action(O) or the whole previous loop (W)")
+        if (c == 'O'):
+            smart.undo()
+        if (c == 'W'):
+            for i in range(0, b):
+                smart.undo()
+    if (a == 'r'):
+        b = loop(n)
     
     
 
