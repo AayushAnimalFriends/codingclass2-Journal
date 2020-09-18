@@ -7,7 +7,7 @@ def Getsequence(): #defining the function
     @dataclass #creating the class from here
     class Point:
         cmd: str
-        value: int t# to here
+        value: int # to here
     ListOfNumbers = []# creating the list we will return 
     while True:
         direction = input("Enter a function ie f b or turn r l or ci or co or up down") #getting the input 
