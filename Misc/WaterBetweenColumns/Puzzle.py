@@ -1,4 +1,5 @@
-BrickStacks = [12345,52,4,286,2,68,72,478,242,856,9952,6252,732,3783,2785,278,24,78,236632,5783,267,3,1,63,322,4,22222,1] #creating list
+#BrickStacks = [12345,52,4,286,2,68,72,478,242,856,9952,6252,732,3783,2785,278,24,78,236632,5783,267,3,1,63,322,4,22222,1] #creating list
+BrickStacks = list(map(int, input("Please Enter columns e.g 5,4,5: ").split(',')))
 left=0 #the max on left side
 right=0#the max on right side
 WaterCollectedSeperate=[]#list of the amounts of water on top of each stack\
