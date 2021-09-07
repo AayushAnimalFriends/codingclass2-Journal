@@ -8,18 +8,16 @@ class Solution(object):
         leftmax=0
         rightmax=0
         WaterCollected=0
-        leftmaxlist=list()
-        rightmaxlist=list()
+        leftmaxlist=[0]*len(BrickStacks)
+        rightmaxlist=[0]*len(BrickStacks)
         for i in range(0,len(BrickStacks)):
-            leftmaxlist.append(leftmax)
+            leftmaxlist[i]=leftmax
             if (BrickStacks[i]>leftmax):
                 leftmax=BrickStacks[i]
-        BrickStacks.reverse()
-        for i in range(0,len(BrickStacks)):
-            rightmaxlist=[rightmax]+rightmaxlist
+        for i in range(len(BrickStacks)-1,-1,-1):
+            rightmaxlist[i]=rightmax
             if (BrickStacks[i]>rightmax):
                 rightmax=BrickStacks[i]
-        BrickStacks.reverse()
         for i in range(0,len(BrickStacks)):
             if (min(leftmaxlist[i],rightmaxlist[i])-BrickStacks[i]>0):
                 WaterCollected=WaterCollected+min(leftmaxlist[i],rightmaxlist[i])-BrickStacks[i]
