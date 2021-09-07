@@ -2,7 +2,7 @@ BrickStacks = [12345,52,4,286,2,68,72,478,242,856,9952,6252,732,3783,2785,278,24
 left=0 #the max on left side
 right=0#the max on right side
 WaterCollectedSeperate=[]#list of the amounts of water on top of each stack\
-WaterCollected=0#the final answer f how much water was collected
+WaterCollected=0#the final answer of how much water was collected
 for i in range(0,len(BrickStacks)): #creating loop to test each element of BrickStacks
     if (i!=0):
         for j in range(0,i): #finding left side max
