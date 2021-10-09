@@ -16,6 +16,7 @@ for i in range(0,highestnum):#used in switching in between layers
                 print(Layer_n,"Layer_n")
                 print(highestnum-i,"current layer")
     while(oneswitchedchecker==1):#keeps repeating unless no tile is switched to has no water aka 1
+        oneswitchedchecker=0#resets this variable for the next round of checking
         for x in range(0,len(Layer_n)):#coordinate x used in figureing out if a certain tile contains water
             for y in range(0,len(Layer_n[0])):#coordinate y used in figuring out if a certain tile contains water
                 if(Layer_n[x][y]==0):#making sure we are only changing the correct ones and not all of them to 1
@@ -33,7 +34,6 @@ for i in range(0,highestnum):#used in switching in between layers
                         #print("b")
                         #print(Layer_n[x+1][y])
                         #print(x,y)
-        oneswitchedchecker=0#resets this variable for the next round of checking
         print(Layer_n,"this is the result")
     for x in range(0,len(Layer_n)):#coordinate x for setting up the array for the next layer and counting all water collected this layer
         for y in range(0,len(Layer_n[0])):#coordinate y for setting up the array for the next layer and counting all water collected this layer
